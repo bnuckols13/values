@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Matters Most — Emotion Regulation Through Values-Aligned Living</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+           RESET & VARIABLES
+           ═══════════════════════════════════════════════════════════════ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --sage: #87A878;
+            --deep-sage: #5F8A4E;
+            --olive: #6B7F3B;
+            --terracotta: #C27849;
+            --deep-terra: #A85D3A;
+            --warm-rose: #C4959D;
+            --dusty-rose: #B07D85;
+            --sand: #E8D5B7;
+            --warm-sand: #F5E6CE;
+            --cream: #FDF8F0;
+            --parchment: #F7F0E3;
+            --stone: #8B8680;
+            --slate: #5C5552;
+            --midnight: #2C2416;
+            --ink: #3D3229;
+            --gold: #B8960C;
+            --muted-gold: #C9A84C;
+            --soft-teal: #7BA7A0;
+            --deep-teal: #4E857D;
+            --muted-purple: #8E7CA8;
+
+            --gradient-earth: linear-gradient(135deg, #87A878 0%, #7BA7A0 100%);
+            --gradient-warm: linear-gradient(135deg, #C27849 0%, #C4959D 100%);
+            --gradient-sage: linear-gradient(135deg, #A8C09A 0%, #87A878 100%);
+            --gradient-parchment: linear-gradient(135deg, #FDF8F0 0%, #F7F0E3 100%);
+
+            --font-display: 'Cinzel', Georgia, serif;
+            --font-body: 'EB Garamond', Georgia, serif;
+
+            --shadow-soft: 0 4px 20px rgba(44, 36, 22, 0.08);
+            --shadow-medium: 0 8px 40px rgba(44, 36, 22, 0.12);
+            --shadow-lifted: 0 16px 50px rgba(44, 36, 22, 0.15);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           BASE
+           ═══════════════════════════════════════════════════════════════ */
+        body {
+            font-family: var(--font-body);
+            background: var(--cream);
+            color: var(--ink);
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           BACKGROUND ELEMENTS
+           ═══════════════════════════════════════════════════════════════ */
+        .bg-symbol {
+            position: fixed;
+            pointer-events: none;
+            font-family: var(--font-display);
+            opacity: 0.04;
+            color: var(--sage);
+            z-index: 0;
+            animation: drift 30s infinite ease-in-out;
+        }
+        .bg-s1 { font-size: 18rem; top: -5%; right: -3%; animation-delay: 0s; }
+        .bg-s2 { font-size: 14rem; bottom: 5%; left: -2%; animation-delay: -10s; color: var(--terracotta); }
+        .bg-s3 { font-size: 10rem; top: 45%; right: 8%; animation-delay: -20s; color: var(--muted-purple); }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(15px, -15px) rotate(3deg); }
+            66% { transform: translate(-10px, 10px) rotate(-2deg); }
+        }
+
+        .bg-circle {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.12;
+            pointer-events: none;
+            animation: breathe-bg 20s infinite ease-in-out;
+        }
+        .bg-c1 { width: 400px; height: 400px; background: var(--sage); top: -10%; left: -5%; }
+        .bg-c2 { width: 350px; height: 350px; background: var(--terracotta); bottom: -10%; right: -5%; animation-delay: -7s; }
+        .bg-c3 { width: 280px; height: 280px; background: var(--soft-teal); top: 50%; left: 50%; animation-delay: -14s; }
+
+        @keyframes breathe-bg {
+            0%, 100% { transform: scale(1); opacity: 0.12; }
+            50% { transform: scale(1.08); opacity: 0.18; }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           CONTAINER & LAYOUT
+           ═══════════════════════════════════════════════════════════════ */
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           CRISIS BANNER
+           ═══════════════════════════════════════════════════════════════ */
+        .crisis-banner {
+            background: linear-gradient(135deg, rgba(196, 149, 157, 0.15) 0%, rgba(135, 168, 120, 0.15) 100%);
+            border: 1px solid rgba(196, 149, 157, 0.3);
+            border-radius: 10px;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            color: var(--slate);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .crisis-banner:hover { background: rgba(196, 149, 157, 0.2); }
+        .crisis-banner .symbol { color: var(--warm-rose); margin-right: 0.5rem; }
+        .crisis-details {
+            display: none;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(196, 149, 157, 0.3);
+            text-align: left;
+            line-height: 1.8;
+        }
+        .crisis-details.open { display: block; }
+
+        /* ═══════════════════════════════════════════════════════════════
+           HEADER
+           ═══════════════════════════════════════════════════════════════ */
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            animation: fadeIn 1s ease;
+        }
+
+        .header-symbol {
+            font-size: 2.5rem;
+            color: var(--muted-gold);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5rem;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: var(--midnight);
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-family: var(--font-body);
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--slate);
+            font-weight: 400;
+        }
+
+        .divider {
+            width: 80px;
+            height: 2px;
+            background: var(--gradient-earth);
+            margin: 1.5rem auto;
+            border-radius: 2px;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           NAVIGATION
+           ═══════════════════════════════════════════════════════════════ */
+        .nav-bar {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .nav-btn {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.65rem 1.25rem;
+            border: 1.5px solid rgba(135, 168, 120, 0.3);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--slate);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .nav-btn:hover {
+            border-color: var(--sage);
+            color: var(--deep-sage);
+            background: rgba(135, 168, 120, 0.08);
+            transform: translateY(-1px);
+        }
+        .nav-btn.active {
+            background: var(--sage);
+            color: white;
+            border-color: var(--sage);
+            box-shadow: 0 3px 12px rgba(135, 168, 120, 0.3);
+        }
+
+        .nav-btn .nav-symbol {
+            margin-right: 0.4rem;
+            font-size: 0.85rem;
+        }
+
+        /* Progress dots */
+        .progress-row {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(135, 168, 120, 0.2);
+            transition: all 0.3s ease;
+        }
+        .progress-dot.active {
+            background: var(--sage);
+            box-shadow: 0 0 8px rgba(135, 168, 120, 0.4);
+        }
+        .progress-dot.completed {
+            background: var(--muted-gold);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           PAGES
+           ═══════════════════════════════════════════════════════════════ */
+        .page {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+        .page.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           CARDS
+           ═══════════════════════════════════════════════════════════════ */
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 134, 128, 0.15);
+            border-radius: 14px;
+            padding: 2rem 2.25rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: var(--shadow-medium);
+        }
+
+        .card-accent {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+        }
+        .accent-sage { background: var(--gradient-earth); }
+        .accent-warm { background: var(--gradient-warm); }
+        .accent-gold { background: linear-gradient(135deg, var(--muted-gold) 0%, var(--terracotta) 100%); }
+        .accent-teal { background: linear-gradient(135deg, var(--soft-teal) 0%, var(--sage) 100%); }
+        .accent-purple { background: linear-gradient(135deg, var(--muted-purple) 0%, var(--warm-rose) 100%); }
+
+        .card h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--midnight);
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+        .card h2 .symbol {
+            color: var(--sage);
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .card h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--deep-sage);
+            letter-spacing: 0.04em;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-intro {
+            color: var(--slate);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .pass-reminder {
+            font-size: 0.88rem;
+            color: var(--stone);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(135, 168, 120, 0.06);
+            border-radius: 8px;
+            border-left: 3px solid rgba(135, 168, 120, 0.3);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           EXPANDABLE SECTIONS
+           ═══════════════════════════════════════════════════════════════ */
+        .expandable {
+            border: 1px solid rgba(139, 134, 128, 0.15);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .expandable:hover { border-color: rgba(135, 168, 120, 0.3); }
+
+        .expandable-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            background: rgba(247, 240, 227, 0.5);
+            transition: background 0.3s ease;
+            user-select: none;
+        }
+        .expandable-header:hover { background: rgba(247, 240, 227, 0.8); }
+
+        .expandable-title {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--midnight);
+            letter-spacing: 0.04em;
+        }
+        .expandable-title .symbol {
+            color: var(--terracotta);
+            margin-right: 0.5rem;
+        }
+
+        .expandable-arrow {
+            color: var(--stone);
+            transition: transform 0.3s ease;
+            font-size: 0.85rem;
+        }
+        .expandable.open .expandable-arrow { transform: rotate(180deg); }
+
+        .expandable-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .expandable.open .expandable-body { max-height: 2000px; }
+
+        .expandable-content {
+            padding: 1.25rem;
+            color: var(--slate);
+            line-height: 1.8;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           FORM ELEMENTS
+           ═══════════════════════════════════════════════════════════════ */
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        .input-group label {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            color: var(--midnight);
+            margin-bottom: 0.5rem;
+        }
+        .hint {
+            display: block;
+            font-size: 0.88rem;
+            color: var(--stone);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 0.9rem 1.1rem;
+            border: 1.5px solid rgba(139, 134, 128, 0.25);
+            border-radius: 10px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            resize: vertical;
+            line-height: 1.7;
+        }
+        textarea:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: var(--sage);
+            box-shadow: 0 0 0 3px rgba(135, 168, 120, 0.12);
+            background: white;
+        }
+        textarea { min-height: 90px; }
+
+        select {
+            width: 100%;
+            padding: 0.9rem 1.1rem;
+            border: 1.5px solid rgba(139, 134, 128, 0.25);
+            border-radius: 10px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235C5552' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+        }
+        select:focus {
+            outline: none;
+            border-color: var(--sage);
+            box-shadow: 0 0 0 3px rgba(135, 168, 120, 0.12);
+        }
+
+        /* Chip selectors */
+        .chip-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+        }
+        .chip {
+            padding: 0.45rem 1rem;
+            border: 1.5px solid rgba(139, 134, 128, 0.25);
+            border-radius: 20px;
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            color: var(--slate);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            background: rgba(255,255,255,0.6);
+            user-select: none;
+        }
+        .chip:hover {
+            border-color: var(--sage);
+            background: rgba(135, 168, 120, 0.06);
+        }
+        .chip.selected {
+            background: var(--sage);
+            color: white;
+            border-color: var(--sage);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           BUTTONS
+           ═══════════════════════════════════════════════════════════════ */
+        .btn {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .btn-primary {
+            background: var(--sage);
+            color: white;
+            box-shadow: 0 3px 12px rgba(135, 168, 120, 0.3);
+        }
+        .btn-primary:hover {
+            background: var(--deep-sage);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 18px rgba(135, 168, 120, 0.35);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--deep-sage);
+            border: 1.5px solid var(--sage);
+        }
+        .btn-secondary:hover {
+            background: rgba(135, 168, 120, 0.08);
+        }
+        .btn-warm {
+            background: var(--terracotta);
+            color: white;
+            box-shadow: 0 3px 12px rgba(194, 120, 73, 0.3);
+        }
+        .btn-warm:hover {
+            background: var(--deep-terra);
+            transform: translateY(-2px);
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           BREATHING CIRCLE
+           ═══════════════════════════════════════════════════════════════ */
+        .breath-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem 0;
+        }
+        .breath-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 2px solid var(--sage);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: var(--deep-sage);
+            background: rgba(135, 168, 120, 0.06);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .breath-circle.breathing {
+            animation: breathe-circle 8s infinite ease-in-out;
+        }
+        @keyframes breathe-circle {
+            0%, 100% { transform: scale(1); background: rgba(135, 168, 120, 0.06); }
+            25% { transform: scale(1.15); background: rgba(135, 168, 120, 0.12); }
+            50% { transform: scale(1.15); background: rgba(135, 168, 120, 0.12); }
+            75% { transform: scale(1); background: rgba(135, 168, 120, 0.06); }
+        }
+        .breath-label {
+            margin-top: 0.75rem;
+            font-size: 0.88rem;
+            color: var(--stone);
+            font-style: italic;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           DIALECTIC BOX
+           ═══════════════════════════════════════════════════════════════ */
+        .dialectic {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            margin: 1.5rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(139, 134, 128, 0.15);
+        }
+        .dialectic-side {
+            flex: 1;
+            padding: 1.25rem;
+            text-align: center;
+        }
+        .dialectic-side:first-child { background: rgba(135, 168, 120, 0.08); }
+        .dialectic-side:last-child { background: rgba(194, 120, 73, 0.08); }
+        .dialectic-side h4 {
+            font-family: var(--font-display);
+            font-size: 0.88rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.4rem;
+            color: var(--midnight);
+        }
+        .dialectic-side p {
+            font-size: 0.92rem;
+            color: var(--slate);
+            font-style: italic;
+        }
+        .dialectic-bridge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem;
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--muted-gold);
+            background: rgba(201, 168, 76, 0.08);
+            font-weight: 600;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           EMOTION MODEL DIAGRAM
+           ═══════════════════════════════════════════════════════════════ */
+        .emotion-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+        .flow-step {
+            background: rgba(255,255,255,0.8);
+            border: 1.5px solid rgba(139, 134, 128, 0.2);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            text-align: center;
+            min-width: 100px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .flow-step:hover {
+            border-color: var(--sage);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-soft);
+        }
+        .flow-step.highlighted {
+            border-color: var(--terracotta);
+            background: rgba(194, 120, 73, 0.08);
+        }
+        .flow-step .step-symbol {
+            font-size: 1.3rem;
+            display: block;
+            margin-bottom: 0.25rem;
+            color: var(--deep-sage);
+        }
+        .flow-step .step-name {
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--midnight);
+        }
+        .flow-arrow {
+            color: var(--stone);
+            font-size: 1.2rem;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           VALUES CARD SORT
+           ═══════════════════════════════════════════════════════════════ */
+        .values-sort-area {
+            margin: 1.5rem 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1.5px solid rgba(139, 134, 128, 0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            user-select: none;
+        }
+        .value-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-soft);
+            border-color: var(--sage);
+        }
+        .value-card .v-symbol {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 0.4rem;
+            color: var(--deep-sage);
+        }
+        .value-card .v-name {
+            font-family: var(--font-display);
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            color: var(--midnight);
+            font-weight: 500;
+        }
+        .value-card .v-desc {
+            font-size: 0.8rem;
+            color: var(--stone);
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+
+        /* Selection states */
+        .value-card.selected-core {
+            border-color: var(--muted-gold);
+            background: rgba(201, 168, 76, 0.1);
+            box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.2);
+        }
+        .value-card.selected-core .v-symbol { color: var(--gold); }
+
+        .value-card.selected-important {
+            border-color: var(--sage);
+            background: rgba(135, 168, 120, 0.08);
+        }
+
+        .value-card .selection-badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: white;
+            font-weight: 700;
+            display: none;
+        }
+        .value-card.selected-core .selection-badge {
+            display: flex;
+            background: var(--muted-gold);
+        }
+        .value-card.selected-important .selection-badge {
+            display: flex;
+            background: var(--sage);
+        }
+
+        .sort-legend {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.88rem;
+            color: var(--slate);
+        }
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .legend-dot.core { background: var(--muted-gold); }
+        .legend-dot.important { background: var(--sage); }
+        .legend-dot.unselected { background: rgba(139, 134, 128, 0.2); }
+
+        .sort-instructions {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--slate);
+            font-style: italic;
+        }
+        .sort-counter {
+            text-align: center;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            letter-spacing: 0.06em;
+            color: var(--deep-sage);
+            margin-bottom: 1rem;
+        }
+
+        /* Values ranking area */
+        .ranking-area {
+            margin-top: 2rem;
+            display: none;
+        }
+        .ranking-area.visible { display: block; }
+
+        .ranking-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: rgba(255,255,255,0.8);
+            border: 1px solid rgba(139, 134, 128, 0.15);
+            border-radius: 10px;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+            cursor: grab;
+        }
+        .ranking-item:hover { box-shadow: var(--shadow-soft); }
+        .ranking-item.dragging {
+            opacity: 0.5;
+            box-shadow: var(--shadow-lifted);
+        }
+        .ranking-item.drag-over {
+            border-color: var(--sage);
+            background: rgba(135, 168, 120, 0.06);
+        }
+
+        .rank-number {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--muted-gold);
+            min-width: 30px;
+            text-align: center;
+        }
+        .rank-symbol {
+            font-size: 1.3rem;
+        }
+        .rank-details {
+            flex: 1;
+        }
+        .rank-name {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            letter-spacing: 0.04em;
+            color: var(--midnight);
+        }
+        .rank-handle {
+            color: var(--stone);
+            cursor: grab;
+            font-size: 1.1rem;
+            padding: 0.25rem;
+        }
+
+        /* Gap analysis */
+        .gap-section {
+            margin-top: 2rem;
+            display: none;
+        }
+        .gap-section.visible { display: block; }
+
+        .gap-item {
+            background: rgba(255,255,255,0.7);
+            border: 1px solid rgba(139, 134, 128, 0.15);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .gap-item h4 {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--midnight);
+            margin-bottom: 0.75rem;
+        }
+        .gap-slider-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .gap-label {
+            font-size: 0.85rem;
+            color: var(--stone);
+            min-width: 80px;
+        }
+        .gap-slider {
+            flex: 1;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            border-radius: 3px;
+            background: linear-gradient(to right, rgba(194, 120, 73, 0.3), rgba(135, 168, 120, 0.5));
+            outline: none;
+        }
+        .gap-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--sage);
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            cursor: pointer;
+        }
+        .gap-value {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            color: var(--deep-sage);
+            min-width: 30px;
+            text-align: center;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           BODY CHECK OPTIONS
+           ═══════════════════════════════════════════════════════════════ */
+        .body-check-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.25rem;
+        }
+        .body-option {
+            padding: 0.4rem 0.9rem;
+            border: 1.5px solid rgba(139, 134, 128, 0.2);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--slate);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            user-select: none;
+        }
+        .body-option:hover {
+            border-color: var(--warm-rose);
+            background: rgba(196, 149, 157, 0.06);
+        }
+        .body-option.selected {
+            background: var(--warm-rose);
+            color: white;
+            border-color: var(--warm-rose);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           QUOTE BOX
+           ═══════════════════════════════════════════════════════════════ */
+        .quote-box {
+            background: rgba(247, 240, 227, 0.6);
+            border-left: 3px solid var(--muted-gold);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1.5rem 0;
+        }
+        .quote-text {
+            font-style: italic;
+            color: var(--ink);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .quote-attr {
+            margin-top: 0.5rem;
+            font-size: 0.88rem;
+            color: var(--stone);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           SUMMARY / RESULTS
+           ═══════════════════════════════════════════════════════════════ */
+        .summary-section {
+            display: none;
+        }
+        .summary-section.visible { display: block; }
+
+        .summary-card {
+            background: rgba(247, 240, 227, 0.5);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .summary-card h4 {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            color: var(--midnight);
+            margin-bottom: 0.5rem;
+        }
+        .summary-card p {
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           NOTIFICATION
+           ═══════════════════════════════════════════════════════════════ */
+        .notification {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--sage);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            letter-spacing: 0.06em;
+            box-shadow: var(--shadow-medium);
+            z-index: 100;
+            transition: transform 0.4s ease;
+        }
+        .notification.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           RESPONSIVE
+           ═══════════════════════════════════════════════════════════════ */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .container { padding: 1rem 1rem 3rem; }
+            .card { padding: 1.5rem; }
+            .nav-btn { font-size: 0.7rem; padding: 0.5rem 0.9rem; }
+            .values-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+            .emotion-flow { gap: 0.15rem; }
+            .flow-step { min-width: 70px; padding: 0.5rem; }
+            .flow-step .step-name { font-size: 0.62rem; }
+            .dialectic { flex-direction: column; }
+            .dialectic-bridge { padding: 0.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Background Elements -->
+<div class="bg-symbol bg-s1">&#9702;</div>
+<div class="bg-symbol bg-s2">&#9674;</div>
+<div class="bg-symbol bg-s3">&#8734;</div>
+<div class="bg-circle bg-c1"></div>
+<div class="bg-circle bg-c2"></div>
+<div class="bg-circle bg-c3"></div>
+
+<div class="container">
+
+    <!-- Crisis Banner -->
+    <div class="crisis-banner" onclick="toggleCrisis()">
+        <span class="symbol">&#9872;</span> If you are in crisis, support is available.
+        <div class="crisis-details" id="crisisDetails">
+            <strong>Crisis Resources:</strong><br>
+            988 Suicide & Crisis Lifeline: Call or text <strong>988</strong><br>
+            Crisis Text Line: Text <strong>HOME</strong> to <strong>741741</strong><br>
+            SAMHSA Helpline: <strong>1-800-662-4357</strong><br>
+            National Alliance for Eating Disorders Helpline: <strong>1-866-662-1235</strong><br>
+            If you are in immediate danger, please call <strong>911</strong>.
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-symbol">&#9702; &#9674; &#9702;</div>
+        <h1>What Matters Most</h1>
+        <p class="subtitle">Emotion Regulation Through Values-Aligned Living</p>
+        <div class="divider"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <button class="nav-btn active" onclick="goTo(0)"><span class="nav-symbol">&#9702;</span>Grounding</button>
+        <button class="nav-btn" onclick="goTo(1)"><span class="nav-symbol">&#9674;</span>Understanding</button>
+        <button class="nav-btn" onclick="goTo(2)"><span class="nav-symbol">&#9734;</span>Values</button>
+        <button class="nav-btn" onclick="goTo(3)"><span class="nav-symbol">&#8710;</span>Practice</button>
+        <button class="nav-btn" onclick="goTo(4)"><span class="nav-symbol">&#8734;</span>Integration</button>
+    </nav>
+
+    <!-- Progress -->
+    <div class="progress-row">
+        <div class="progress-dot active" id="dot0"></div>
+        <div class="progress-dot" id="dot1"></div>
+        <div class="progress-dot" id="dot2"></div>
+        <div class="progress-dot" id="dot3"></div>
+        <div class="progress-dot" id="dot4"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PAGE 0: GROUNDING
+         ═══════════════════════════════════════════════════════════════ -->
+    <div class="page active" id="page-0">
+        <div class="card">
+            <div class="card-accent accent-sage"></div>
+            <h2><span class="symbol">&#9702;</span> Arrival & Grounding</h2>
+            <p class="card-intro">
+                Before we explore, let's arrive. Whatever you're carrying into this moment is welcome here. There is nothing you need to fix or change right now — only notice.
+            </p>
+            <div class="pass-reminder">You may always pass on any activity. Your participation is an invitation, not an obligation.</div>
+
+            <div class="quote-box">
+                <p class="quote-text">"Between stimulus and response there is a space. In that space is our freedom and our power to choose."</p>
+                <p class="quote-attr">— Viktor Frankl</p>
+            </div>
+
+            <!-- Breathing -->
+            <div class="breath-container">
+                <div class="breath-circle" id="breathCircle" onclick="toggleBreathing()">
+                    <span id="breathText">Begin</span>
+                </div>
+                <p class="breath-label" id="breathLabel">Tap to begin a breathing cycle</p>
+            </div>
+
+            <!-- Body Check-In -->
+            <div class="input-group">
+                <label>Where in your body do you notice sensation right now?</label>
+                <span class="hint">Select any that feel true — there are no wrong answers</span>
+                <div class="body-check-options" id="bodyCheck">
+                    <span class="body-option" onclick="toggleBody(this)">Head / forehead</span>
+                    <span class="body-option" onclick="toggleBody(this)">Jaw / throat</span>
+                    <span class="body-option" onclick="toggleBody(this)">Shoulders</span>
+                    <span class="body-option" onclick="toggleBody(this)">Chest</span>
+                    <span class="body-option" onclick="toggleBody(this)">Stomach / gut</span>
+                    <span class="body-option" onclick="toggleBody(this)">Hands</span>
+                    <span class="body-option" onclick="toggleBody(this)">Legs / feet</span>
+                    <span class="body-option" onclick="toggleBody(this)">General tension</span>
+                    <span class="body-option" onclick="toggleBody(this)">General calm</span>
+                    <span class="body-option" onclick="toggleBody(this)">Numbness</span>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Your internal weather right now</label>
+                <span class="hint">Cloudy, buzzing, still, foggy, warm, stormy, clear...</span>
+                <input type="text" id="internalWeather" placeholder="A word or phrase...">
+            </div>
+
+            <!-- Dialectic -->
+            <div class="dialectic">
+                <div class="dialectic-side">
+                    <h4>Honoring Emotions</h4>
+                    <p>My feelings carry real information about what matters to me</p>
+                </div>
+                <div class="dialectic-bridge">&</div>
+                <div class="dialectic-side">
+                    <h4>Choosing Direction</h4>
+                    <p>I can let my values guide my actions, even when emotions are loud</p>
+                </div>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="goTo(1)">Continue &#8594;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PAGE 1: PSYCHOEDUCATION
+         ═══════════════════════════════════════════════════════════════ -->
+    <div class="page" id="page-1">
+        <div class="card">
+            <div class="card-accent accent-warm"></div>
+            <h2><span class="symbol">&#9674;</span> Understanding Emotions & Values</h2>
+            <p class="card-intro">
+                Emotions are not problems to solve. They are messengers — signals from within that tell us something about what we need and what we value. Emotion regulation isn't about suppressing these signals. It's about learning to listen clearly and then choosing how to respond.
+            </p>
+
+            <!-- The Emotion Model -->
+            <h3>The Anatomy of an Emotional Experience</h3>
+            <p style="color: var(--slate); margin-bottom: 1rem;">Each emotional moment follows a sequence. Tap any step to learn more.</p>
+
+            <div class="emotion-flow">
+                <div class="flow-step" onclick="showFlowDetail(this, 0)">
+                    <span class="step-symbol">&#9672;</span>
+                    <span class="step-name">Event</span>
+                </div>
+                <span class="flow-arrow">&#8594;</span>
+                <div class="flow-step" onclick="showFlowDetail(this, 1)">
+                    <span class="step-symbol">&#9670;</span>
+                    <span class="step-name">Interpretation</span>
+                </div>
+                <span class="flow-arrow">&#8594;</span>
+                <div class="flow-step" onclick="showFlowDetail(this, 2)">
+                    <span class="step-symbol">&#9829;</span>
+                    <span class="step-name">Emotion</span>
+                </div>
+                <span class="flow-arrow">&#8594;</span>
+                <div class="flow-step" onclick="showFlowDetail(this, 3)">
+                    <span class="step-symbol">&#8623;</span>
+                    <span class="step-name">Urge</span>
+                </div>
+                <span class="flow-arrow">&#8594;</span>
+                <div class="flow-step" onclick="showFlowDetail(this, 4)">
+                    <span class="step-symbol">&#9733;</span>
+                    <span class="step-name">Action</span>
+                </div>
+            </div>
+
+            <div id="flowDetail" style="display:none; padding: 1.25rem; background: rgba(247,240,227,0.5); border-radius: 10px; margin: 1rem 0; color: var(--slate); line-height: 1.8;"></div>
+
+            <!-- Where values fit -->
+            <div class="quote-box" style="margin-top: 2rem; border-left-color: var(--terracotta);">
+                <p class="quote-text" style="font-style: normal;"><strong>Where do values enter?</strong> Values are the compass between urge and action. When emotions are loud, values help us ask: <em>"What kind of person do I want to be in this moment?"</em></p>
+            </div>
+        </div>
+
+        <!-- Expandable Skill Cards -->
+        <div class="card">
+            <div class="card-accent accent-teal"></div>
+            <h2><span class="symbol">&#9670;</span> Key Emotion Regulation Skills</h2>
+            <p class="card-intro">These DBT skills become more powerful when anchored in your values.</p>
+
+            <div class="expandable" onclick="toggleExpand(this)">
+                <div class="expandable-header">
+                    <span class="expandable-title"><span class="symbol">&#9673;</span> Check the Facts</span>
+                    <span class="expandable-arrow">&#9662;</span>
+                </div>
+                <div class="expandable-body">
+                    <div class="expandable-content">
+                        <p><strong>What it is:</strong> Examining whether your emotional response matches the actual situation — not the story your mind is telling.</p>
+                        <p style="margin-top: 0.75rem;"><strong>The practice:</strong> Ask yourself — What is the triggering event? What are the <em>facts</em>, not my interpretations? Does the intensity of my emotion match what actually happened? What would someone I trust say about this situation?</p>
+                        <p style="margin-top: 0.75rem;"><strong>Values connection:</strong> When we check the facts, we're honoring a value of <em>clarity</em> — choosing to see reality clearly so we can respond from wisdom rather than reactivity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="expandable" onclick="toggleExpand(this)">
+                <div class="expandable-header">
+                    <span class="expandable-title"><span class="symbol">&#8634;</span> Opposite Action</span>
+                    <span class="expandable-arrow">&#9662;</span>
+                </div>
+                <div class="expandable-body">
+                    <div class="expandable-content">
+                        <p><strong>What it is:</strong> When your emotion doesn't fit the facts — or when acting on the emotion would move you away from your values — you act opposite to the emotional urge.</p>
+                        <p style="margin-top: 0.75rem;"><strong>The practice:</strong></p>
+                        <p>Fear says <em>avoid</em> &#8594; Move toward (when safe)</p>
+                        <p>Anger says <em>attack</em> &#8594; Be gentle, step back</p>
+                        <p>Sadness says <em>withdraw</em> &#8594; Get active, engage</p>
+                        <p>Shame says <em>hide</em> &#8594; Share with someone safe</p>
+                        <p style="margin-top: 0.75rem;"><strong>Values connection:</strong> Opposite action is values in motion. It asks: <em>"What would I do if I were guided by what matters most to me?"</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="expandable" onclick="toggleExpand(this)">
+                <div class="expandable-header">
+                    <span class="expandable-title"><span class="symbol">&#9734;</span> Accumulate Positives</span>
+                    <span class="expandable-arrow">&#9662;</span>
+                </div>
+                <div class="expandable-body">
+                    <div class="expandable-content">
+                        <p><strong>What it is:</strong> Building a life that generates positive emotions naturally — not through avoidance or numbing, but through meaningful, values-aligned action.</p>
+                        <p style="margin-top: 0.75rem;"><strong>The practice:</strong></p>
+                        <p><em>Short-term:</em> Do one pleasant thing each day. Notice it. Let yourself absorb it.</p>
+                        <p><em>Long-term:</em> Identify your values. Set goals that move you toward a life worth living. Take small, consistent steps.</p>
+                        <p style="margin-top: 0.75rem;"><strong>Values connection:</strong> This skill IS the bridge between emotion regulation and values. When we build our lives around what truly matters, emotional resilience grows from the inside out.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="expandable" onclick="toggleExpand(this)">
+                <div class="expandable-header">
+                    <span class="expandable-title"><span class="symbol">&#9651;</span> Cope Ahead</span>
+                    <span class="expandable-arrow">&#9662;</span>
+                </div>
+                <div class="expandable-body">
+                    <div class="expandable-content">
+                        <p><strong>What it is:</strong> Mental rehearsal — imagining a challenging situation and practicing your skillful response before it happens.</p>
+                        <p style="margin-top: 0.75rem;"><strong>The practice:</strong> Describe the situation in detail. Decide which skills you'll use. Imagine yourself using them effectively. Rehearse the whole thing in your mind, including how you'll bring yourself back if you get activated.</p>
+                        <p style="margin-top: 0.75rem;"><strong>Values connection:</strong> When you cope ahead, you're asking: <em>"How do I want to show up when this gets hard?"</em> Your values become the anchor for your rehearsal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-secondary" onclick="goTo(0)">&#8592; Back</button>
+            <button class="btn btn-primary" onclick="goTo(2)">Explore Your Values &#8594;</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PAGE 2: VALUES CARD SORT
+         ═══════════════════════════════════════════════════════════════ -->
+    <div class="page" id="page-2">
+        <div class="card">
+            <div class="card-accent accent-gold"></div>
+            <h2><span class="symbol">&#9734;</span> Your Values Constellation</h2>
+            <p class="card-intro">
+                Values are not goals we achieve — they are directions we walk in. They are not about being perfect. They are about being intentional. This exercise invites you to name what matters most to you, right now, in this season of your life.
+            </p>
+            <div class="pass-reminder">There are no right or wrong values. What resonates for you is enough.</div>
+
+            <div class="sort-instructions">
+                <strong>Step 1:</strong> Tap cards to select. First tap marks <em>important</em>. Second tap marks <em>core</em>. Third tap deselects.<br>
+                Choose up to 5 core values and as many important values as you like.
+            </div>
+
+            <div class="sort-legend">
+                <div class="legend-item"><div class="legend-dot core"></div> Core value</div>
+                <div class="legend-item"><div class="legend-dot important"></div> Important</div>
+                <div class="legend-item"><div class="legend-dot unselected"></div> Not selected</div>
+            </div>
+
+            <div class="sort-counter" id="sortCounter">Core: 0 / 5</div>
+
+            <div class="values-grid" id="valuesGrid">
+                <!-- Populated by JS -->
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-primary" onclick="showRanking()" id="rankBtn" style="opacity: 0.5; pointer-events: none;">Rank Your Core Values</button>
+            </div>
+        </div>
+
+        <!-- Ranking Area -->
+        <div class="card ranking-area" id="rankingArea">
+            <div class="card-accent accent-gold"></div>
+            <h2><span class="symbol">&#9651;</span> Prioritize What Matters Most</h2>
+            <p class="card-intro">Drag to reorder your core values from most central to your identity to those that are important but slightly less primary right now.</p>
+
+            <ul class="ranking-list" id="rankingList">
+                <!-- Populated by JS -->
+            </ul>
+        </div>
+
+        <!-- Gap Analysis -->
+        <div class="card gap-section" id="gapSection">
+            <div class="card-accent accent-warm"></div>
+            <h2><span class="symbol">&#8762;</span> The Living Gap</h2>
+            <p class="card-intro">
+                For each core value, reflect honestly: how closely are you living in alignment with this value right now? This isn't a judgment — it's information. The gap between where you are and where you want to be is where growth lives.
+            </p>
+
+            <div id="gapItems">
+                <!-- Populated by JS -->
+            </div>
+
+            <div class="input-group" style="margin-top: 1.5rem;">
+                <label>What do you notice as you look at these gaps?</label>
+                <span class="hint">Any patterns, surprises, or emotions that arise...</span>
+                <textarea id="gapReflection" placeholder="Take a moment to notice what comes up..."></textarea>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-secondary" onclick="goTo(1)">&#8592; Back</button>
+            <button class="btn btn-primary" onclick="goTo(3)">Practice &#8594;</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PAGE 3: PRACTICE
+         ═══════════════════════════════════════════════════════════════ -->
+    <div class="page" id="page-3">
+        <div class="card">
+            <div class="card-accent accent-purple"></div>
+            <h2><span class="symbol">&#8710;</span> When Emotions & Values Collide</h2>
+            <p class="card-intro">
+                The most difficult moments aren't when our values are clear and emotions are calm. They're when emotions pull us hard in one direction while our values point another way. This is where emotion regulation becomes a living practice.
+            </p>
+
+            <h3>Choose a Scenario to Explore</h3>
+            <p style="color: var(--slate); margin-bottom: 1rem;">Select one that resonates, or write your own below.</p>
+
+            <div class="chip-group" id="scenarioChips" style="margin-bottom: 1.5rem;">
+                <span class="chip" onclick="selectScenario(this, 0)">Anxiety says avoid, but connection is my value</span>
+                <span class="chip" onclick="selectScenario(this, 1)">Anger says lash out, but kindness matters to me</span>
+                <span class="chip" onclick="selectScenario(this, 2)">Shame says hide, but authenticity is my value</span>
+                <span class="chip" onclick="selectScenario(this, 3)">Sadness says withdraw, but presence matters to me</span>
+                <span class="chip" onclick="selectScenario(this, 4)">Numbness says nothing matters, but I know it does</span>
+            </div>
+
+            <div class="input-group">
+                <label>Describe your situation (chosen or your own)</label>
+                <textarea id="scenarioDesc" placeholder="What is happening? What emotion is showing up? What is it urging you to do?"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>What value is this emotion bumping up against?</label>
+                <textarea id="scenarioValue" placeholder="What matters to you here that the emotion is pulling you away from?"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Check the Facts: Does your emotion fit the situation?</label>
+                <select id="factsCheck">
+                    <option value="">Reflect...</option>
+                    <option value="yes">Yes — the emotion fits, but the intensity may be too high</option>
+                    <option value="partial">Partially — there's some truth, but my mind is adding a story</option>
+                    <option value="no">Not really — I'm reacting to an interpretation, not facts</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>What would a values-aligned response look like?</label>
+                <span class="hint">Not the "perfect" response — the one that honors who you want to be</span>
+                <textarea id="valuesResponse" placeholder="If I let my value of [____] guide me, I would..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>What skill could support you?</label>
+                <div class="chip-group">
+                    <span class="chip" onclick="toggleChip(this)">Check the Facts</span>
+                    <span class="chip" onclick="toggleChip(this)">Opposite Action</span>
+                    <span class="chip" onclick="toggleChip(this)">Cope Ahead</span>
+                    <span class="chip" onclick="toggleChip(this)">Self-Compassion</span>
+                    <span class="chip" onclick="toggleChip(this)">Distress Tolerance</span>
+                    <span class="chip" onclick="toggleChip(this)">Mindfulness</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accumulate Positives Mini-Plan -->
+        <div class="card">
+            <div class="card-accent accent-sage"></div>
+            <h2><span class="symbol">&#9673;</span> Accumulate Positives: Your Plan</h2>
+            <p class="card-intro">
+                Building a life worth living starts with small, intentional actions. Using the core values you identified, let's create a concrete plan.
+            </p>
+
+            <div class="input-group">
+                <label>One pleasant thing I can do today that connects to my values</label>
+                <textarea id="todayPleasant" placeholder="Something small, specific, and doable..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>One values-aligned goal I'm working toward this week</label>
+                <textarea id="weekGoal" placeholder="A step toward the life you want to be living..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>What might get in the way? How will I cope ahead?</label>
+                <textarea id="copeAhead" placeholder="Name the obstacle and your plan for navigating it..."></textarea>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-secondary" onclick="goTo(2)">&#8592; Back</button>
+            <button class="btn btn-primary" onclick="goTo(4)">Integration &#8594;</button>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         PAGE 4: INTEGRATION
+         ═══════════════════════════════════════════════════════════════ -->
+    <div class="page" id="page-4">
+        <div class="card">
+            <div class="card-accent accent-gold"></div>
+            <h2><span class="symbol">&#8734;</span> Integration & Commitment</h2>
+            <p class="card-intro">
+                As we close, take a moment to honor what you've explored. You've shown up for yourself today — that is itself a values-aligned action.
+            </p>
+
+            <div class="quote-box">
+                <p class="quote-text">"It is not because things are difficult that we do not dare; it is because we do not dare that things are difficult."</p>
+                <p class="quote-attr">— Seneca</p>
+            </div>
+
+            <div class="input-group">
+                <label>What is one thing you're taking away from today?</label>
+                <textarea id="takeaway" placeholder="A thought, a feeling, a new awareness..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>One small, values-aligned action I commit to before our next session</label>
+                <textarea id="commitment" placeholder="Something specific and achievable..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>How are you feeling now compared to when we began?</label>
+                <div class="chip-group">
+                    <span class="chip" onclick="toggleChip(this)">More grounded</span>
+                    <span class="chip" onclick="toggleChip(this)">More aware</span>
+                    <span class="chip" onclick="toggleChip(this)">Hopeful</span>
+                    <span class="chip" onclick="toggleChip(this)">Challenged</span>
+                    <span class="chip" onclick="toggleChip(this)">Tender</span>
+                    <span class="chip" onclick="toggleChip(this)">Energized</span>
+                    <span class="chip" onclick="toggleChip(this)">Uncertain</span>
+                    <span class="chip" onclick="toggleChip(this)">Peaceful</span>
+                </div>
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-warm" onclick="generateSummary()">Generate Journey Summary</button>
+            </div>
+        </div>
+
+        <!-- Summary Output -->
+        <div class="card summary-section" id="summarySection">
+            <div class="card-accent accent-gold"></div>
+            <h2><span class="symbol">&#9702;</span> Your Journey Summary</h2>
+            <div id="summaryContent"></div>
+            <div class="btn-row">
+                <button class="btn btn-secondary" onclick="downloadSummary()">Download Summary</button>
+                <button class="btn btn-secondary" onclick="clearAll()">Start Fresh</button>
+            </div>
+        </div>
+
+        <div class="btn-row">
+            <button class="btn btn-secondary" onclick="goTo(3)">&#8592; Back</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- Notification -->
+<div class="notification" id="notification"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════
+let currentPage = 0;
+let visitedPages = new Set([0]);
+let breathingActive = false;
+let breathInterval = null;
+
+const VALUES_DATA = [
+    { name: "Connection", symbol: "&#9826;", desc: "Deep bonds with others" },
+    { name: "Authenticity", symbol: "&#9673;", desc: "Being genuinely yourself" },
+    { name: "Compassion", symbol: "&#9829;", desc: "Kindness toward self & others" },
+    { name: "Courage", symbol: "&#9733;", desc: "Acting despite fear" },
+    { name: "Growth", symbol: "&#9650;", desc: "Continual learning & change" },
+    { name: "Freedom", symbol: "&#9674;", desc: "Autonomy & self-direction" },
+    { name: "Creativity", symbol: "&#10047;", desc: "Expression & imagination" },
+    { name: "Integrity", symbol: "&#9670;", desc: "Living by your word" },
+    { name: "Health", symbol: "&#9702;", desc: "Physical & emotional wellness" },
+    { name: "Justice", symbol: "&#9878;", desc: "Fairness & equity" },
+    { name: "Family", symbol: "&#8962;", desc: "Bonds of kinship & home" },
+    { name: "Wisdom", symbol: "&#8734;", desc: "Understanding & discernment" },
+    { name: "Presence", symbol: "&#9702;", desc: "Being here, fully" },
+    { name: "Service", symbol: "&#9758;", desc: "Contributing to something larger" },
+    { name: "Peace", symbol: "&#9790;", desc: "Inner & outer stillness" },
+    { name: "Adventure", symbol: "&#10038;", desc: "Novelty & exploration" },
+    { name: "Gratitude", symbol: "&#10048;", desc: "Appreciating what is" },
+    { name: "Love", symbol: "&#10084;", desc: "Giving & receiving love" },
+    { name: "Respect", symbol: "&#9651;", desc: "Honoring dignity" },
+    { name: "Responsibility", symbol: "&#10070;", desc: "Owning your part" },
+    { name: "Play", symbol: "&#10022;", desc: "Joy & lightness" },
+    { name: "Spirituality", symbol: "&#10017;", desc: "Connection to something beyond" },
+    { name: "Trust", symbol: "&#9672;", desc: "Safety in relationship" },
+    { name: "Purpose", symbol: "&#10023;", desc: "Meaningful direction" }
+];
+
+let valuesState = {}; // { name: 'none' | 'important' | 'core' }
+VALUES_DATA.forEach(v => valuesState[v.name] = 'none');
+
+let coreOrder = [];
+
+// ═══════════════════════════════════════════════════════════════
+// FLOW DETAIL DATA
+// ═══════════════════════════════════════════════════════════════
+const flowDetails = [
+    { title: "Prompting Event", text: "Something happens — internal or external. It could be a conversation, a memory, a sensation, a change in plans. This is the raw event before your mind begins to interpret it." },
+    { title: "Interpretation", text: "Your mind makes meaning of the event. This is where stories, assumptions, past experiences, and cognitive patterns shape how you understand what happened. Two people can experience the same event and interpret it completely differently." },
+    { title: "Emotion", text: "The interpretation generates an emotional response — in your body and your awareness. Emotions carry information about what matters to you. A threat to something valued creates fear or anger. A loss creates sadness. An alignment creates joy." },
+    { title: "Urge", text: "Every emotion comes with an action urge. Fear urges escape. Anger urges confrontation. Sadness urges withdrawal. Shame urges hiding. These urges are hardwired and not inherently wrong — but they aren't always wise." },
+    { title: "Action", text: "This is the choice point — and where values enter. You can act on the urge, or you can pause, check the facts, and choose a response aligned with who you want to be. This is where emotion regulation lives." }
+];
+
+// ═══════════════════════════════════════════════════════════════
+// INITIALIZATION
+// ═══════════════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+    buildValuesGrid();
+    loadState();
+});
+
+function buildValuesGrid() {
+    const grid = document.getElementById('valuesGrid');
+    grid.innerHTML = VALUES_DATA.map((v, i) => `
+        <div class="value-card" data-name="${v.name}" onclick="cycleValue('${v.name}')">
+            <div class="selection-badge" id="badge-${v.name}"></div>
+            <span class="v-symbol">${v.symbol}</span>
+            <span class="v-name">${v.name}</span>
+            <span class="v-desc">${v.desc}</span>
+        </div>
+    `).join('');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════════════════════════
+function goTo(pageIndex) {
+    currentPage = pageIndex;
+    visitedPages.add(pageIndex);
+
+    document.querySelectorAll('.page').forEach((p, i) => {
+        p.classList.toggle('active', i === pageIndex);
+    });
+    document.querySelectorAll('.nav-btn').forEach((b, i) => {
+        b.classList.toggle('active', i === pageIndex);
+    });
+    document.querySelectorAll('.progress-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === pageIndex);
+        d.classList.toggle('completed', visitedPages.has(i) && i !== pageIndex);
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    saveState();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// BREATHING
+// ═══════════════════════════════════════════════════════════════
+function toggleBreathing() {
+    const circle = document.getElementById('breathCircle');
+    const text = document.getElementById('breathText');
+    const label = document.getElementById('breathLabel');
+
+    if (breathingActive) {
+        breathingActive = false;
+        circle.classList.remove('breathing');
+        clearInterval(breathInterval);
+        text.textContent = 'Begin';
+        label.textContent = 'Tap to begin a breathing cycle';
+        return;
+    }
+
+    breathingActive = true;
+    circle.classList.add('breathing');
+    label.textContent = 'Tap again to stop';
+
+    const phases = ['Breathe in...', 'Hold...', 'Breathe out...', 'Rest...'];
+    let phase = 0;
+
+    text.textContent = phases[0];
+    breathInterval = setInterval(() => {
+        phase = (phase + 1) % 4;
+        text.textContent = phases[phase];
+    }, 2000);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// BODY CHECK & CHIPS
+// ═══════════════════════════════════════════════════════════════
+function toggleBody(el) {
+    el.classList.toggle('selected');
+    saveState();
+}
+
+function toggleChip(el) {
+    el.classList.toggle('selected');
+    saveState();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// EXPANDABLE SECTIONS
+// ═══════════════════════════════════════════════════════════════
+function toggleExpand(el) {
+    el.classList.toggle('open');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CRISIS BANNER
+// ═══════════════════════════════════════════════════════════════
+function toggleCrisis() {
+    document.getElementById('crisisDetails').classList.toggle('open');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// EMOTION FLOW DETAIL
+// ═══════════════════════════════════════════════════════════════
+function showFlowDetail(el, index) {
+    document.querySelectorAll('.flow-step').forEach(s => s.classList.remove('highlighted'));
+    el.classList.add('highlighted');
+
+    const detail = document.getElementById('flowDetail');
+    const d = flowDetails[index];
+    detail.innerHTML = `<h4 style="font-family: var(--font-display); color: var(--midnight); margin-bottom: 0.5rem; letter-spacing: 0.04em;">${d.title}</h4><p>${d.text}</p>`;
+    detail.style.display = 'block';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// VALUES CARD SORT
+// ═══════════════════════════════════════════════════════════════
+function cycleValue(name) {
+    const current = valuesState[name];
+    const coreCount = Object.values(valuesState).filter(v => v === 'core').length;
+
+    if (current === 'none') {
+        valuesState[name] = 'important';
+    } else if (current === 'important') {
+        if (coreCount >= 5) {
+            notify('You have selected 5 core values — deselect one to choose another.');
+            return;
+        }
+        valuesState[name] = 'core';
+    } else {
+        valuesState[name] = 'none';
+    }
+
+    updateValuesUI();
+    saveState();
+}
+
+function updateValuesUI() {
+    const coreCount = Object.values(valuesState).filter(v => v === 'core').length;
+    document.getElementById('sortCounter').textContent = `Core: ${coreCount} / 5`;
+
+    const rankBtn = document.getElementById('rankBtn');
+    if (coreCount >= 1) {
+        rankBtn.style.opacity = '1';
+        rankBtn.style.pointerEvents = 'auto';
+    } else {
+        rankBtn.style.opacity = '0.5';
+        rankBtn.style.pointerEvents = 'none';
+    }
+
+    document.querySelectorAll('.value-card').forEach(card => {
+        const name = card.dataset.name;
+        const state = valuesState[name];
+        card.classList.remove('selected-core', 'selected-important');
+        if (state === 'core') card.classList.add('selected-core');
+        else if (state === 'important') card.classList.add('selected-important');
+
+        const badge = document.getElementById('badge-' + name);
+        if (state === 'core') {
+            const idx = getCoreValues().indexOf(name) + 1;
+            badge.textContent = idx;
+        } else if (state === 'important') {
+            badge.textContent = '✓';
+        }
+    });
+}
+
+function getCoreValues() {
+    return Object.entries(valuesState)
+        .filter(([_, v]) => v === 'core')
+        .map(([name]) => name);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RANKING
+// ═══════════════════════════════════════════════════════════════
+function showRanking() {
+    coreOrder = getCoreValues();
+    if (coreOrder.length === 0) {
+        notify('Select at least one core value first.');
+        return;
+    }
+
+    renderRanking();
+    document.getElementById('rankingArea').classList.add('visible');
+    document.getElementById('rankingArea').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Also show gap analysis
+    renderGapAnalysis();
+    document.getElementById('gapSection').classList.add('visible');
+}
+
+function renderRanking() {
+    const list = document.getElementById('rankingList');
+    list.innerHTML = coreOrder.map((name, i) => {
+        const v = VALUES_DATA.find(d => d.name === name);
+        return `
+            <li class="ranking-item" draggable="true" data-name="${name}"
+                ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="drop(event)" ondragend="dragEnd(event)">
+                <span class="rank-number">${i + 1}</span>
+                <span class="rank-symbol">${v.symbol}</span>
+                <div class="rank-details">
+                    <span class="rank-name">${v.name}</span>
+                </div>
+                <span class="rank-handle">&#8942;&#8942;</span>
+            </li>`;
+    }).join('');
+}
+
+let dragItem = null;
+function dragStart(e) {
+    dragItem = e.target.closest('.ranking-item');
+    dragItem.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+}
+function dragOver(e) {
+    e.preventDefault();
+    const item = e.target.closest('.ranking-item');
+    if (item && item !== dragItem) {
+        item.classList.add('drag-over');
+    }
+}
+function drop(e) {
+    e.preventDefault();
+    const target = e.target.closest('.ranking-item');
+    if (target && target !== dragItem) {
+        const fromName = dragItem.dataset.name;
+        const toName = target.dataset.name;
+        const fromIdx = coreOrder.indexOf(fromName);
+        const toIdx = coreOrder.indexOf(toName);
+        coreOrder.splice(fromIdx, 1);
+        coreOrder.splice(toIdx, 0, fromName);
+        renderRanking();
+        renderGapAnalysis();
+        saveState();
+    }
+}
+function dragEnd(e) {
+    document.querySelectorAll('.ranking-item').forEach(item => {
+        item.classList.remove('dragging', 'drag-over');
+    });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// GAP ANALYSIS
+// ═══════════════════════════════════════════════════════════════
+function renderGapAnalysis() {
+    const container = document.getElementById('gapItems');
+    container.innerHTML = coreOrder.map((name, i) => {
+        const v = VALUES_DATA.find(d => d.name === name);
+        return `
+            <div class="gap-item">
+                <h4>${v.symbol} ${v.name}</h4>
+                <div class="gap-slider-row">
+                    <span class="gap-label">Far from it</span>
+                    <input type="range" class="gap-slider" min="1" max="10" value="5"
+                        id="gap-${name}" oninput="updateGapValue('${name}', this.value)">
+                    <span class="gap-value" id="gapval-${name}">5</span>
+                    <span class="gap-label">Living it</span>
+                </div>
+            </div>`;
+    }).join('');
+}
+
+function updateGapValue(name, val) {
+    document.getElementById('gapval-' + name).textContent = val;
+    saveState();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SCENARIOS
+// ═══════════════════════════════════════════════════════════════
+const scenarioTexts = [
+    "I feel anxious about reaching out to someone I care about. The anxiety is telling me to cancel plans and stay home. But connection is one of my core values.",
+    "Someone crossed a boundary and I'm furious. The anger wants me to say something sharp, something that will hurt. But kindness and respect matter deeply to me.",
+    "I made a mistake and shame is flooding in. Every part of me wants to hide, to pretend it didn't happen, to pull away. But I value authenticity and honesty.",
+    "I'm feeling heavy and sad today. The sadness wants me to stay in bed, cancel everything, disappear for a while. But being present for my life and the people in it matters to me.",
+    "I feel disconnected — flat, numb, like nothing really matters. But somewhere underneath, I know that's not true. I know things do matter to me."
+];
+
+function selectScenario(el, index) {
+    document.querySelectorAll('#scenarioChips .chip').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('scenarioDesc').value = scenarioTexts[index];
+    saveState();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SUMMARY
+// ═══════════════════════════════════════════════════════════════
+function generateSummary() {
+    const weather = document.getElementById('internalWeather').value || 'Not recorded';
+    const bodyParts = Array.from(document.querySelectorAll('#bodyCheck .body-option.selected')).map(el => el.textContent);
+    const coreVals = getCoreValues();
+    const gapData = coreOrder.map(name => {
+        const slider = document.getElementById('gap-' + name);
+        return { name, value: slider ? slider.value : '—' };
+    });
+    const gapReflection = document.getElementById('gapReflection')?.value || '';
+    const takeaway = document.getElementById('takeaway')?.value || '';
+    const commitment = document.getElementById('commitment')?.value || '';
+    const todayPleasant = document.getElementById('todayPleasant')?.value || '';
+    const weekGoal = document.getElementById('weekGoal')?.value || '';
+    const closingFeelings = Array.from(document.querySelectorAll('#page-4 .chip.selected')).map(c => c.textContent);
+
+    let html = '';
+
+    html += `<div class="summary-card"><h4>&#9702; Arrival</h4>
+        <p><strong>Internal weather:</strong> ${weather}</p>
+        ${bodyParts.length ? `<p><strong>Body sensations:</strong> ${bodyParts.join(', ')}</p>` : ''}
+    </div>`;
+
+    if (coreVals.length) {
+        html += `<div class="summary-card"><h4>&#9734; Core Values</h4>
+            <p>${coreOrder.map((n, i) => `<strong>${i + 1}.</strong> ${n}`).join(' &nbsp;&#8226;&nbsp; ')}</p>
+        </div>`;
+    }
+
+    if (gapData.length) {
+        html += `<div class="summary-card"><h4>&#8762; Values Gap Analysis</h4>
+            ${gapData.map(g => `<p>${g.name}: <strong>${g.value}/10</strong> alignment</p>`).join('')}
+            ${gapReflection ? `<p style="margin-top:0.75rem;"><em>"${gapReflection}"</em></p>` : ''}
+        </div>`;
+    }
+
+    if (todayPleasant || weekGoal) {
+        html += `<div class="summary-card"><h4>&#9673; Accumulate Positives Plan</h4>
+            ${todayPleasant ? `<p><strong>Today:</strong> ${todayPleasant}</p>` : ''}
+            ${weekGoal ? `<p><strong>This week:</strong> ${weekGoal}</p>` : ''}
+        </div>`;
+    }
+
+    if (takeaway || commitment) {
+        html += `<div class="summary-card"><h4>&#8734; Integration</h4>
+            ${takeaway ? `<p><strong>Takeaway:</strong> ${takeaway}</p>` : ''}
+            ${commitment ? `<p><strong>Commitment:</strong> ${commitment}</p>` : ''}
+            ${closingFeelings.length ? `<p><strong>Closing state:</strong> ${closingFeelings.join(', ')}</p>` : ''}
+        </div>`;
+    }
+
+    document.getElementById('summaryContent').innerHTML = html;
+    document.getElementById('summarySection').classList.add('visible');
+    document.getElementById('summarySection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    saveState();
+}
+
+function downloadSummary() {
+    const content = document.getElementById('summaryContent').innerText;
+    const header = "WHAT MATTERS MOST — Journey Summary\nEmotion Regulation Through Values-Aligned Living\n" + new Date().toLocaleDateString() + "\n\n";
+    const blob = new Blob([header + content], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'values-journey-summary.txt';
+    a.click();
+    URL.revokeObjectURL(a.href);
+    notify('Summary downloaded');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CLEAR
+// ═══════════════════════════════════════════════════════════════
+function clearAll() {
+    if (!confirm('This will clear all your entries and start fresh. Continue?')) return;
+    localStorage.removeItem('wmm_state');
+    location.reload();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// NOTIFICATION
+// ═══════════════════════════════════════════════════════════════
+function notify(msg) {
+    const el = document.getElementById('notification');
+    el.textContent = msg;
+    el.classList.add('show');
+    setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PERSISTENCE
+// ═══════════════════════════════════════════════════════════════
+function saveState() {
+    try {
+        const state = {
+            currentPage,
+            visitedPages: Array.from(visitedPages),
+            valuesState,
+            coreOrder,
+            weather: document.getElementById('internalWeather')?.value || '',
+            bodyChecked: Array.from(document.querySelectorAll('#bodyCheck .body-option.selected')).map(el => el.textContent),
+            gapReflection: document.getElementById('gapReflection')?.value || '',
+            scenarioDesc: document.getElementById('scenarioDesc')?.value || '',
+            scenarioValue: document.getElementById('scenarioValue')?.value || '',
+            factsCheck: document.getElementById('factsCheck')?.value || '',
+            valuesResponse: document.getElementById('valuesResponse')?.value || '',
+            todayPleasant: document.getElementById('todayPleasant')?.value || '',
+            weekGoal: document.getElementById('weekGoal')?.value || '',
+            copeAhead: document.getElementById('copeAhead')?.value || '',
+            takeaway: document.getElementById('takeaway')?.value || '',
+            commitment: document.getElementById('commitment')?.value || '',
+            timestamp: Date.now()
+        };
+        localStorage.setItem('wmm_state', JSON.stringify(state));
+    } catch (e) { /* silent */ }
+}
+
+function loadState() {
+    try {
+        const saved = localStorage.getItem('wmm_state');
+        if (!saved) return;
+        const state = JSON.parse(saved);
+
+        // Check freshness (24 hours)
+        if (Date.now() - state.timestamp > 86400000) {
+            localStorage.removeItem('wmm_state');
+            return;
+        }
+
+        if (state.valuesState) {
+            valuesState = state.valuesState;
+            updateValuesUI();
+        }
+        if (state.coreOrder) coreOrder = state.coreOrder;
+        if (state.visitedPages) visitedPages = new Set(state.visitedPages);
+        if (state.weather) document.getElementById('internalWeather').value = state.weather;
+        if (state.bodyChecked) {
+            document.querySelectorAll('#bodyCheck .body-option').forEach(el => {
+                if (state.bodyChecked.includes(el.textContent)) el.classList.add('selected');
+            });
+        }
+
+        // Restore text fields
+        const fields = ['gapReflection','scenarioDesc','scenarioValue','valuesResponse','todayPleasant','weekGoal','copeAhead','takeaway','commitment'];
+        fields.forEach(f => {
+            const el = document.getElementById(f);
+            if (el && state[f]) el.value = state[f];
+        });
+        if (state.factsCheck) document.getElementById('factsCheck').value = state.factsCheck;
+
+        // Restore ranking/gap if core values exist
+        if (coreOrder.length > 0) {
+            renderRanking();
+            document.getElementById('rankingArea').classList.add('visible');
+            renderGapAnalysis();
+            document.getElementById('gapSection').classList.add('visible');
+        }
+
+        // Navigate to saved page
+        if (state.currentPage) goTo(state.currentPage);
+    } catch (e) { /* silent */ }
+}
+
+// Auto-save on input changes
+document.addEventListener('input', () => { saveState(); });
+</script>
+
+</body>
+</html>
